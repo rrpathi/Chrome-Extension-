@@ -1,0 +1,15 @@
+{
+    "name": "Hello Extensions",
+    "description" : "Save items with one click.",
+    "version": "1.0",
+    "manifest_version": 2,
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "permissions": ["storage","contextMenus","tabs"],
+    "browser_action": {
+      "default_popup": "hello.html",
+      "default_icon": "hello_extensions.png"
+    }
+     
+  }
