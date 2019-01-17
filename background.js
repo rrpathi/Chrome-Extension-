@@ -17,10 +17,15 @@
 			chrome.storage.local.get(function(addressBarUrl){
 				if(addressBarUrl.url == undefined){
 					localStorageUrl.push(tabURL);
-					console.log('if');
+					chrome.storage.local.set({'url': localStorageUrl}, function() {
+						console.log('if condition --- url Added');
+					});
 				}else{
 					localStorageUrl = addressBarUrl.url;
 					localStorageUrl.push(tabURL);
+					chrome.storage.local.set({'url': localStorageUrl}, function() {
+						console.log('New localStorageUrl Updated');
+					});	
 					console.log(localStorageUrl);
 					console.log('else');
 				}
