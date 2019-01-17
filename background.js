@@ -10,7 +10,7 @@
 	});
 
 	function getUrl(){
-		console.log("inside function");
+		// console.log("inside function");
 		chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 		var tabURL = tabs[0].url;
 		if(tabURL.indexOf('http') >= 0){
@@ -22,12 +22,14 @@
 					});
 				}else{
 					localStorageUrl = addressBarUrl.url;
-					localStorageUrl.push(tabURL);
-					chrome.storage.local.set({'url': localStorageUrl}, function() {
-						console.log('New localStorageUrl Updated');
-					});	
-					console.log(localStorageUrl);
-					console.log('else');
+					if(localStorageUrl.indexOf(tabURL) >= 0){
+						console.log('Url Already Exist');
+					}else{
+						localStorageUrl.push(tabURL);
+						chrome.storage.local.set({'url': localStorageUrl}, function() {
+							console.log(localStorageUrl);
+						});	
+					}
 				}
 			});
 		}else{
