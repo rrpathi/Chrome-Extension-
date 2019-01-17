@@ -1,16 +1,25 @@
 {
-    "name": "Hello Extensions",
+    "name": "Save Url",
     "description" : "Save items with one click.",
     "version": "1.0",
     "manifest_version": 2,
     "background": {
-      "scripts": ["background.js","main.js"],
+      "scripts": ["background.js"],
       "persistent": false
     },
     "permissions": ["storage","contextMenus","tabs"],
     "browser_action": {
       "default_popup": "hello.html",
       "default_icon": "hello_extensions.png"
-    }
-     
+    },
+    "options_page":"options.html"
+    //   "content_scripts": [
+    //     {
+    //     "matches": [
+    //         "http://*/*",
+    //         "https://*/*"
+    //         ],
+    //     "js": ["jquery.js","option.js"]
+    //     }
+    // ] 
   }

@@ -1,0 +1,26 @@
+body {
+  background-color: #f8f8f8;
+  margin: 0px;
+}
+#wrapper {
+  margin: 0px 0px;
+  width: 275px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  max-height: 606px;
+  color: #2a2a2a;
+}
+
+.logo {
+  height: auto;
+  width: 45%;
+}
+.menu-entry {
+  padding-left: 100px;
+  cursor: pointer;
+}
+
+#titletext {
+  padding: 8px 8px 2px 0px;
+  text-align: center;
+}
