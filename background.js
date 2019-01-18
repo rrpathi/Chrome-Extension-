@@ -39,23 +39,4 @@
 		});
 	}
 
-// 	chrome.browserAction.onClicked.addListener(function(tab) {
-// 		// document.querySelector("#link_option_page").addEventListener("click",function(){
-// 		// 	console.log('Hello');
-// 		// })
-// 		// getUrl();
-//   // var action_url = "javascript:window.print();";
-//   // chrome.tabs.update(tab.id, {url: action_url});
-// });
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-// 		chrome.browserAction.onClicked.addListener(function(tab) {
-// 			console.log('i am in');
-// 		// document.querySelector("#link_option_page").addEventListener("click",function(){
-// 		// 	console.log('Hello');
-// 		// })
-// 		// getUrl();
-// });
-// });
-chrome.browserAction.onClicked.addListener(function(tab) { alert('icon clicked')});
+document.getElementById('link_option_page').addEventListener('click', getUrl);
