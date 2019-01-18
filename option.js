@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	  	// $('#url_list').append(`<a href="${element}">${element}</a><br />`);
   	});
 	});
+  
 });
 
 window.onload = function(){ 
@@ -48,12 +49,19 @@ if (document.readyState === "complete") {  // Loading hasn't finished yet
 
 }
 
-document.querySelector('body').addEventListener('click', function(event) {
-	var url_id = event.target.id;
-	chrome.storage.local.get(function(addressBarUrl) {
-		addressBarUrl.url.splice(url_id,1);
-		chrome.storage.local.set({'url': addressBarUrl.url}, function() {
-							// console.log(localStorageUrl);
-						});	
+	document.querySelector('#url_list ').addEventListener('click', function(event) {
+		var url_id = event.target.id;
+		console.log(url_id);
+		if(url_id != ''){
+			chrome.storage.local.get(function(addressBarUrl) {	
+				addressBarUrl.url.splice(url_id,1);
+				chrome.storage.local.set({'url': addressBarUrl.url}, function() {
+					chrome.tabs.getSelected(null, function(tab) {
+					tabId = tab.id;
+					chrome.tabs.reload(tabId);	
+					});
+				});	
+			});
+		}
 	});
-});
+
