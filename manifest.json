@@ -7,7 +7,7 @@
       "scripts": ["background.js","option.js"],
       "persistent": false
     },
-    "permissions": ["storage","contextMenus","tabs"],
+    "permissions": ["storage","contextMenus","tabs","<all_urls>"],
     "browser_action": {
       "default_popup": "hello.html",
       "default_icon": "hello_extensions.png"

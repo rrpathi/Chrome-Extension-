@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	  	// $('#url_list').append(`<a href="${element}">${element}</a><br />`);
   	});
 	});
-  
+
 });
 
 window.onload = function(){ 
@@ -65,3 +65,12 @@ if (document.readyState === "complete") {  // Loading hasn't finished yet
 		}
 	});
 
+
+	// chrome.browserAction.onClicked.addListener(function(tab) {
+		// document.querySelector("#link_option_page").addEventListener("click",function(){
+		// 	console.log('Hello');
+		// })
+		// getUrl();
+  // var action_url = "javascript:window.print();";
+  // chrome.tabs.update(tab.id, {url: action_url});
+// });
