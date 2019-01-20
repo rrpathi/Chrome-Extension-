@@ -4,6 +4,7 @@
 		"contexts":["all"]
 	};
 	var localStorageUrl = [];
+	var localStorageData = {};
 	chrome.contextMenus.create(contextItem);
 	chrome.contextMenus.onClicked.addListener(function(){
 		getUrl();
@@ -13,22 +14,35 @@
 		// console.log("inside function");
 		chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 		var tabURL = tabs[0].url;
+		var tabTitle = tabs[0].title;
 		if(tabURL.indexOf('http') >= 0){
 			chrome.storage.local.get(function(addressBarUrl){
 				if(addressBarUrl.url == undefined){
-					localStorageUrl.push(tabURL);
+					console.log('if');
+					var uniqueId = Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
+					 localStorageData = {'uniqueId':uniqueId,'title': tabTitle,'url' : tabURL};
+					localStorageUrl.push(localStorageData);
 					chrome.storage.local.set({'url': localStorageUrl}, function() {
 						console.log('if condition --- url Added');
 					});
 				}else{
 					localStorageUrl = addressBarUrl.url;
-					if(localStorageUrl.indexOf(tabURL) >= 0){
-						console.log('Url Already Exist');
+					for(var i = 0;i<localStorageUrl.length;i++){
+						if(localStorageUrl[i].url == tabURL){
+							var existId = 1;
+							break;
+						}
+					}
+					if(existId == '1'){
+						console.log('url already added');
 					}else{
-						localStorageUrl.push(tabURL);
-						chrome.storage.local.set({'url': localStorageUrl}, function() {
-							console.log(localStorageUrl);
-						});	
+							var uniqueId = Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
+					 		localStorageData = {'uniqueId':uniqueId,'title': tabTitle,'url' : tabURL};
+							localStorageUrl.push(localStorageData);
+							chrome.storage.local.set({'url': localStorageUrl}, function() {
+							console.log('else condition --- url Added');
+						});
+
 					}
 				}
 			});
@@ -40,3 +54,7 @@
 	}
 
 document.getElementById('link_option_page').addEventListener('click', getUrl);
+// window.close();
+	// chrome.browserAction.onClicked.addListener(function(tab) {
+	// 		getUrl();
+	// });
