@@ -65,7 +65,6 @@ if (document.readyState === "complete") {  // Loading hasn't finished yet
 		}
 	});
 
-
 	// chrome.browserAction.onClicked.addListener(function(tab) {
 		// document.querySelector("#link_option_page").addEventListener("click",function(){
 		// 	console.log('Hello');
