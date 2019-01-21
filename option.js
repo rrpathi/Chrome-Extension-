@@ -26,13 +26,17 @@ $(document).ready(function(){
 		});
 	});
 
-
-
 });
 
 
-	// chrome.browserAction.onClicked.addListener(function(tab) {
-	// 	document.querySelector("#link_option_page").addEventListener("click",function(){
-	// 		getUrl();
-	// 	})
-	// });
+// chrome.windows.onFocusChanged.addListener(function() 
+// {
+
+// 	alert('Hello');
+//     // chrome.tabs.getCurrent(function(ctab)
+//     // {
+
+    	
+//     //     // chrome.tabs.executeScript(ctab.id, { file: "inject.js" });
+//     // });
+// });

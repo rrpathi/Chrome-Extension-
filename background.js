@@ -1,5 +1,5 @@
 	var contextItem = {
-		"id":"ragu",
+		"id":"bookmark_extension",
 		"title" :"Save To BookMark",
 		"contexts":["all"]
 	};
@@ -54,6 +54,10 @@
 	}
 
 document.getElementById('link_option_page').addEventListener('click', getUrl);
+
+
+
+
 // window.close();
 	// chrome.browserAction.onClicked.addListener(function(tab) {
 	// 		getUrl();
