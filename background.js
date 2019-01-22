@@ -11,6 +11,8 @@
 	});
 
 	function getUrl(){
+		var http = new XMLHttpRequest();
+		console.log(http);
 		// console.log("inside function");
 		chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 		var tabURL = tabs[0].url;
